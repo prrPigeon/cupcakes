@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cupcakes shop</title>
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="img/favicon_io/site.webmanifest">
+<link href="style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width">
+<link href="fa/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+</head>
+
+<body>
+	
+<header id="header">
+	<div class="wrapper">
+		<div id="respmenu">
+			<i class="fas fa-bars"></i>
+			<nav id="respmenu-nav">
+				<ul>
+					<li><a href="index.html">home</a></li>
+					<li><a href="recipes.html">recipes</a></li>
+					<li><a href="products.html">our products</a></li>
+					<li><a href="about.html">about us</a></li>
+					<li><a href="order.html">order</a></li>
+					<li><a href="shops.html">our shops</a></li>
+				</ul>
+			</nav><!-- end #respmenu-nav -->
+		</div><!-- end #respmenu -->
+		<div class="social-media">
+			<a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+			<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+			<a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+			<a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+		</div><!-- end .social-media -->
+	</div><!-- end .wrapper -->	
+</header><!-- end #header -->
+
+<div id="logo">
+		<img src="img/logo.svg" alt="logo cupcakes">
+</div><!-- end #logo -->
+	
+<nav id="nav">
+	<div class="wrapper">
+		<ul>
+			<li><a href="index.html">home</a></li>
+			<li><a href="recipes.html">recipes</a></li>
+			<li><a href="products.html">our products</a></li>
+			<li><a href="about.html">about us</a></li>
+			<li><a href="order.html">order</a></li>
+			<li><a href="shops.html">our shops</a></li>
+		</ul>
+	</div><!-- end .wrapper -->	
+</nav><!-- end #nav -->
+	
+<div id="location">
+	<div id="map">
+	</div><!-- end #map -->
+	<div id="address">
+		<p>2486 Main Street<br>11000 Belgrade<br>Serbia</p><br>
+		<p>5698 Some Street<br>11000 Belgrade<br>Serbia</p><br>
+		<p>7892 Second Street<br>11000 Belgrade<br>Serbia</p>
+	</div><!-- end #address -->
+</div><!-- end .wrapper -->
+	
+<footer id="footer">
+	<div id="footer-top">
+		<div class="wrapper">
+			<div id="footer-address">
+				<h2>Find us</h2>
+				<p>2486 Main Street<br>11000 Belgrade<br>Serbia</p>
+			</div><!-- end #footer-adress -->
+			<div id="footer-contact">
+				<h2>Contact us</h2>
+				<p>011/222-333<br>contact@cupcakes.com</p>
+			</div><!-- end #footer-contact -->
+			<div id="social">
+				<h2>Follow us</h2>
+				<div class="social-media">
+					<a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+					</div><!-- end .social-media -->
+			</div><!-- end #footer-social -->
+			</div><!-- end .wrapper -->
+		</div><!-- end #footer-top -->
+		<div id="footer-bottom">
+				<p>Copyright &copy; by Cupcakes shop</p>
+		</div><!-- end #footer-bottom -->
+</footer><!-- end #footer -->
+	
+<script>
+	var menu = document.querySelector("#respmenu-nav ul");
+	var bttn = document.querySelector("#respmenu");
+	
+	bttn.onclick = function() {
+		menu.classList.toggle("open");
+	}
+</script>
+	
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin="">
+</script>	
+
+<script>
+	var mymap = L.map('map').setView([44.8117846,20.460273], 14);	
+	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 18,
+	}).addTo(mymap);
+	
+	var icecream = L.icon({
+    iconUrl: 'img/icecream.png',
+   	iconSize: [18, 45], 
+	iconAnchor: [10, 45], 
+});
+	L.marker([44.81019, 20.46669], {icon: icecream}).addTo(mymap);
+	L.marker([44.80415, 20.47228], {icon: icecream}).addTo(mymap);
+	L.marker([44.81819, 20.42515], {icon: icecream}).addTo(mymap);
+	
+</script>
+	
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
